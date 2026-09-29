@@ -1,0 +1,412 @@
+/* =========================================
+   MusicHub — Tela do Artista
+   ========================================= */
+
+:root {
+  /* Cores */
+  --color-bg: #730710;
+  --color-card: #a90b18;
+  --color-row-active: #960a16;
+  --color-white: #ffffff;
+  --color-text-soft: rgba(255, 255, 255, 0.75);
+  --color-text-muted: rgba(255, 255, 255, 0.5);
+  --color-violet-light: #eee6e9;
+  --color-violet-darker: #1f000d;
+
+  /* Fonte: SF Pro no Mac/iPhone, Inter no resto */
+  --font-main: "SF Pro", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+
+  /* Vidro (search, sidebar) */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(23px);
+  --glass-edge: inset 0 0 0 1px rgba(255, 255, 255, 0.15), inset 0 0 11px 0 rgba(242, 242, 242, 0.12);
+
+  /* Medidas */
+  --content-width: 998px;
+  --radius-card: 24px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-main);
+  color: var(--color-white);
+  background-color: var(--color-bg);
+  padding-bottom: 60px;
+}
+
+img {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ---------- Fundo ---------- */
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(133, 0, 56, 0)),
+    url("../assets/artista/bg-artista.png") center / cover no-repeat,
+    var(--color-bg);
+}
+
+/* ---------- Header ---------- */
+
+.topbar {
+  width: 1200px;
+  max-width: calc(100% - 32px);
+  margin: 30px auto 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.topbar__logo img {
+  width: 102px;
+  height: 40px;
+}
+
+.search {
+  position: relative;
+  width: 500px;
+  height: 40px;
+  border-radius: 24px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-edge);
+}
+
+.search__icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+}
+
+.search__input {
+  width: 100%;
+  height: 100%;
+  padding: 0 20px 0 60px;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  outline: none;
+}
+
+.search__input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.topbar__avatar {
+  justify-self: end;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.topbar__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+  position: fixed;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  padding: 5px 5px 14px;
+  border-radius: 29px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-edge);
+}
+
+.sidebar__item {
+  width: 50px;
+  height: 73px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.sidebar__item--active {
+  height: 80px;
+  background: var(--glass-bg);
+  box-shadow: var(--glass-edge);
+}
+
+.sidebar__item:not(.sidebar__item--active):hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar__icon {
+  width: 30px;
+  height: 27px;
+}
+
+.sidebar__icon--home {
+  width: 28px;
+  height: 30px;
+}
+
+/* ---------- Layout do artista ---------- */
+
+.artist {
+  position: relative;
+  width: var(--content-width);
+  margin: 70px auto 0;
+  display: grid;
+  grid-template-columns: 386px 562px;
+  column-gap: 50px;
+  row-gap: 30px;
+  /* formato vermelho que liga o banner aos cards */
+  background: url("../assets/artista/union.svg") top left / 998px 813px no-repeat;
+}
+
+/* ---------- Banner ---------- */
+
+.artist-banner {
+  grid-column: 1 / -1;
+  position: relative;
+  height: 333px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.artist-banner__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artist-banner__name {
+  position: absolute;
+  left: 21px;
+  top: 258px;
+  font-size: 48.3px;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.artist-banner__actions {
+  position: absolute;
+  left: 850px;
+  top: 272px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-play img {
+  width: 40px;
+  height: 40px;
+}
+
+.btn-seguir {
+  padding: 10px 14px;
+  border: 1px solid var(--color-white);
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  transition: background 0.2s;
+}
+
+.btn-seguir:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- Cards ---------- */
+
+.artist-col {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.card {
+  position: relative;
+  padding: 20px;
+  border-radius: var(--radius-card);
+  background: var(--color-card);
+}
+
+.card__title {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+}
+
+.card--sobre {
+  height: 244px;
+}
+
+.sobre__text {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  text-align: justify;
+}
+
+.sobre__text strong {
+  font-weight: 900;
+}
+
+.card--lancamento {
+  height: 164px;
+}
+
+.album {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.album__cover {
+  width: 75px;
+  height: 75px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.album__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.album__name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.album__meta {
+  font-size: 14px;
+  color: var(--color-text-soft);
+}
+
+/* ---------- Populares ---------- */
+
+.card--populares {
+  height: 450px;
+}
+
+.song-list {
+  list-style: none;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.song {
+  height: 60px;
+  padding: 5px 23px 5px 0;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 40px 50px 1fr auto;
+  column-gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.song--active,
+.song:hover {
+  background: var(--color-row-active);
+}
+
+.song__pos {
+  padding-left: 19px;
+  font-size: 20px;
+  color: var(--color-text-soft);
+}
+
+.song__cover {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.song__info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.song__name {
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 230px;
+}
+
+.song__artist {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.song__time {
+  font-size: 12px;
+  opacity: 0.5;
+  padding-top: 16px;
+}
+
+.card__more {
+  position: absolute;
+  left: 37px;
+  bottom: 25px;
+  font-size: 14px;
+  color: var(--color-text-soft);
+}
+
+.card__more:hover {
+  text-decoration: underline;
+}
