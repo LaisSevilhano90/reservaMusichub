@@ -154,7 +154,7 @@ img {
     justify-content: center;
     align-items: center;
     height: 175px;
-    margin-bottom: 34px
+    /* margin-bottom: 34px */
 }
 
 .hero .c {
@@ -266,6 +266,7 @@ img {
     scrollbar-width: none
 }
 
+
 .row::-webkit-scrollbar {
     display: none
 }
@@ -279,7 +280,8 @@ img {
     background-size: cover;
     background-position: center;
     border: 1px solid rgba(255, 255, 255, .25);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, .35)
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .35);
+    object-fit: cover;
 }
 
 

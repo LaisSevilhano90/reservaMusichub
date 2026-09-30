@@ -17,6 +17,11 @@
     box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
+
 body {
     min-height: 100vh;
     display: grid;
@@ -25,7 +30,7 @@ body {
     padding: 70px 90px 40px;
     font-family: "Inter", "Segoe UI", Arial, sans-serif;
     color: var(--texto-claro);
-    background-image: url("../img/fundoHub.svg"); 
+    background-image: url("../imgs/login/fundoHub.svg"); 
     background-size: cover;
 }
 

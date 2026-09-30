@@ -19,30 +19,32 @@
   <!-- ===== Header ===== -->
   <header class="topbar">
     <a class="topbar__logo" href="#">
-      <img src="../assets/logo-hub.svg" alt="MusicHub" width="102" height="40">
+      <img src="../imgs/artista/logoHUB.png" alt="MusicHub" width="102" height="40">
     </a>
 
     <form class="search" role="search" id="search-form">
-      <img class="search__icon" src="../assets/artista/icon-search.svg" alt="">
+      <img class="search__icon" src="../imgs/artista/icon-pesquisar.png" alt="">
       <input class="search__input" type="search" id="search-input" name="q"
              placeholder="Search artists, tracks, playlists..." aria-label="Buscar">
     </form>
 
-    <button class="topbar__avatar" type="button" id="btn-perfil" aria-label="Perfil">
-      <img src="../assets/artista/avatar.png" alt="">
-    </button>
+    <a href="../usuario/usu.html">
+      <button class="topbar__avatar" type="button" id="btn-perfil" aria-label="Perfil">
+        <img src="../imgs/artista/avatar.png" alt="">
+      </button>
+    </a>
   </header>
 
   <!-- ===== Sidebar ===== -->
   <nav class="sidebar" aria-label="Navegação principal">
-    <a class="sidebar__item sidebar__item--active" href="#" id="nav-home" aria-label="Início">
-      <img class="sidebar__icon sidebar__icon--home" src="../assets/artista/icon-home.svg" alt="">
+    <a class="sidebar__item sidebar__item--active" href="../home/home.html" id="nav-home" aria-label="Início">
+      <img class="sidebar__icon sidebar__icon--home" src="../imgs/musica/icon-home.png" alt="">
     </a>
     <a class="sidebar__item" href="#" id="nav-biblioteca" aria-label="Biblioteca">
-      <img class="sidebar__icon" src="../assets/artista/icon-biblioteca.svg" alt="">
+      <img class="sidebar__icon" src="../imgs/musica/icon-biblioteca.png" alt="">
     </a>
     <a class="sidebar__item" href="#" id="nav-favoritos" aria-label="Favoritos">
-      <img class="sidebar__icon" src="../assets/artista/icon-favoritos.svg" alt="">
+      <img class="sidebar__icon" src="../imgs/musica/icon-favoritar.svg" alt="">
     </a>
   </nav>
 
@@ -50,12 +52,12 @@
   <main class="artist">
 
     <section class="artist-banner">
-      <img class="artist-banner__img" src="../assets/artista/banner.png" alt="">
+      <img class="artist-banner__img" src="../imgs/artista/banner.png" alt="">
       <h1 class="artist-banner__name" id="artist-name">The Weeknd</h1>
 
       <div class="artist-banner__actions">
         <button class="btn-play" type="button" id="btn-play" aria-label="Tocar">
-          <img src="../assets/artista/icon-play.svg" alt="" width="40" height="40">
+          <img src="../imgs/musica/icon-play.svg" alt="" width="40" height="40">
         </button>
         <button class="btn-seguir" type="button" id="btn-seguir">Seguir</button>
       </div>
@@ -75,7 +77,7 @@
       <section class="card card--lancamento">
         <h2 class="card__title">Último lançamento</h2>
         <a class="album" href="#" id="ultimo-lancamento">
-          <img class="album__cover" src="../assets/artista/album-hurry-up.png" alt="" width="75" height="75">
+          <img class="album__cover" src="../imgs/artista/album-hurry-up.png" alt="" width="75" height="75">
           <div class="album__info">
             <span class="album__name">Hurry Up Tomorrow</span>
             <span class="album__meta">2025•22 músicas, 1h 24min</span>
@@ -90,7 +92,7 @@
       <ol class="song-list" id="song-list">
         <li class="song song--active">
           <span class="song__pos">1</span>
-          <img class="song__cover" src="../assets/artista/musica-1.png" alt="" width="50" height="50">
+          <img class="song__cover" src="../imgs/artista/musica-1.png" alt="" width="50" height="50">
           <div class="song__info">
             <span class="song__name">Starboy</span>
             <span class="song__artist">The Weeknd</span>
@@ -99,7 +101,7 @@
         </li>
         <li class="song">
           <span class="song__pos">2</span>
-          <img class="song__cover" src="../assets/artista/musica-2.png" alt="" width="50" height="50">
+          <img class="song__cover" src="../imgs/artista/musica-2.png" alt="" width="50" height="50">
           <div class="song__info">
             <span class="song__name">One Of The Girls (with JENNIE, Lily Rose Depp)</span>
             <span class="song__artist">The Weeknd</span>
@@ -108,7 +110,7 @@
         </li>
         <li class="song">
           <span class="song__pos">3</span>
-          <img class="song__cover" src="../assets/artista/musica-3.png" alt="" width="50" height="50">
+          <img class="song__cover" src="../imgs/artista/musica-3.png" alt="" width="50" height="50">
           <div class="song__info">
             <span class="song__name">Blinding Lights</span>
             <span class="song__artist">The Weeknd</span>
@@ -117,7 +119,7 @@
         </li>
         <li class="song">
           <span class="song__pos">4</span>
-          <img class="song__cover" src="../assets/artista/musica-4.png" alt="" width="50" height="50">
+          <img class="song__cover" src="../imgs/artista/musica-4.png" alt="" width="50" height="50">
           <div class="song__info">
             <span class="song__name">Timeless (feat Playboi Carti)</span>
             <span class="song__artist">The Weeknd</span>
@@ -126,7 +128,7 @@
         </li>
         <li class="song">
           <span class="song__pos">5</span>
-          <img class="song__cover" src="../assets/artista/musica-5.png" alt="" width="50" height="50">
+          <img class="song__cover" src="../imgs/artista/musica-5.png" alt="" width="50" height="50">
           <div class="song__info">
             <span class="song__name">Die For You</span>
             <span class="song__artist">The Weeknd</span>
